@@ -12,9 +12,12 @@
     "production": "nuxt build && NUXT_HOST=0.0.0.0 NUXT_PORT=3000 nuxt start"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.8.0",
-    "axios": "^0.19.0",
-    "nuxt": "^2.0.0"
+    "@nuxtjs/axios": "^5.9.5",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.9.0",
+    "nuxt": "^2.12.1",
+    "vue": "^2.6.11"
   },
   "devDependencies": {}
 }
