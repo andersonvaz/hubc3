@@ -58,20 +58,13 @@
 <script>
 import axios from 'axios'
 export default {
-  asyncData({ params }) {
-    return axios.get('http://localhost:3000/api/produtos/3').then((res) => {
-      return { produtos: res.data }
-    })
-  },
-  methods: {
-    getNextMovie() {
-      return axios.get('http://localhost:3000/api/empresas').then((res) => {
-        this.movie = res.data
+  asyncData ({ params }) {
+    return axios.get(`http://localhost:3000/api/produtos/${params.id}`)
+      .then((res) => {
+        return { produtos: res.data }
       })
-    }
   }
 }
-
 </script>
 
 <style>

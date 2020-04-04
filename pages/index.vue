@@ -14,7 +14,7 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1>HUB PEQUENAS EMPRESAS</h1>
+      <h1>HUB EMPRESAS</h1>
       <p class="lead text-muted">Lista de empresas</p>
       <p>
         <a href="#" class="btn btn-primary my-2">Main call to action</a>
@@ -30,8 +30,8 @@
 	  <img class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail" :src="'/logo/'+empresa.logoNome" :alt="empresa.nome+'.jpg'">	
             <div class="card-body">
               <h3 class="card-text"> {{empresa.nome}} </h3>
-	      <h4 class="card-text"> <a href=""> {{empresa.telefone}} </a> </h4>
-	      <h4 class="card-text"> <a :href="':produtos?'+empresa.cod"> {{empresa.url}} </a> </h4> 
+	      <h4 class="card-text"> {{empresa.telefone}} </h4>
+	      <h4 class="card-text"> <a :href="'/empresa/'+empresa.cod"> Acesse a loja </a> </h4> 
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                 </div>
@@ -63,13 +63,6 @@ export default {
     return axios.get('http://localhost:3000/api/empresas').then((res) => {
       return { empresas: res.data }
     })
-  },
-  methods: {
-    getNextMovie() {
-      return axios.get('http://localhost:3000/api/empresas').then((res) => {
-        this.movie = res.data
-      })
-    }
   }
 }
 
