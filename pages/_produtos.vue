@@ -14,8 +14,8 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1>HUB PEQUENAS EMPRESAS</h1>
-      <p class="lead text-muted">Lista de empresas</p>
+      <h1>Empresa XXX</h1>
+      <p class="lead text-muted">Lista de produtos</p>
       <p>
         <a href="#" class="btn btn-primary my-2">Main call to action</a>
         <a href="#" class="btn btn-secondary my-2">Secondary action</a>
@@ -25,13 +25,12 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row">
-        <div v-for="empresa in empresas" class="col-md-4">
+        <div v-for="produto in produtos" class="col-md-4">
           <div class="card mb-4 shadow-sm">
-	  <img class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail" :src="'/logo/'+empresa.logoNome" :alt="empresa.nome+'.jpg'">	
             <div class="card-body">
-              <h3 class="card-text"> {{empresa.nome}} </h3>
-	      <h4 class="card-text"> <a href=""> {{empresa.telefone}} </a> </h4>
-	      <h4 class="card-text"> <a :href="':produtos?'+empresa.cod"> {{empresa.url}} </a> </h4> 
+              <h3 class="card-text"> {{produto.nome}} </h3>
+	      <p>  {{produto.desc}} </p>
+	      <p>  {{produto.preco}} </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                 </div>
@@ -59,9 +58,9 @@
 <script>
 import axios from 'axios'
 export default {
-  asyncData({ params, error }) {
-    return axios.get('http://localhost:3000/api/empresas').then((res) => {
-      return { empresas: res.data }
+  asyncData({ params }) {
+    return axios.get('http://localhost:3000/api/produtos/3').then((res) => {
+      return { produtos: res.data }
     })
   },
   methods: {

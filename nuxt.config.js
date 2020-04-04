@@ -1,5 +1,5 @@
 
-export default {
+module.exports = {
   mode: 'universal',
   /*
   ** Headers of the page
@@ -28,7 +28,6 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    
   ],
   /*
   ** Nuxt.js dev-modules
@@ -39,9 +38,17 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    // Doc: https://bootstrap-vue.js.org
+    'bootstrap-vue/nuxt',
+    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    'bootstrap-vue/nuxt'
   ],
+  /*
+  ** Axios module configuration
+  ** See https://axios.nuxtjs.org/options
+  */
+  axios: {
+  },
   /*
   ** Build configuration
   */
@@ -50,15 +57,6 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
-    }
-  },
-  router: {
-    extendRoutes (routes, resolve) {
-      routes.push({
-        name: 'custom',
-        path: '*',
-        component: resolve(__dirname, 'pages/404.vue')
-      });
     }
   }
 }
