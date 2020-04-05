@@ -28,9 +28,10 @@
         <div v-for="produto in produtos" class="col-md-4">
           <div class="card mb-4 shadow-sm">
             <div class="card-body">
+	    <nuxt-link :to="'/empresa/produto/'+produto.cod">	
               <h3 class="card-text"> {{produto.nome}} </h3>
-	      <p>  {{produto.desc}} </p>
 	      <p>  {{produto.preco}} </p>
+	      </nuxt-link>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                 </div>
@@ -59,7 +60,7 @@
 import axios from 'axios'
 export default {
   asyncData ({ params }) {
-    return axios.get(`http://localhost:3000/api/produtos/${params.id}`)
+    return axios.get(`http://localhost:3000/api/empresa/${params.id}`)
       .then((res) => {
         return { produtos: res.data }
       })

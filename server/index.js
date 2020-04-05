@@ -34,14 +34,21 @@ async function start() {
     
     
     app.get('/api/empresas', (req, res) => {
-	db.query('select cod,nome,logoNome,telefone,url from tabEmpresa', (error, results) => {
+	db.query('select cod,nome,logoNome,telefone,url,TO_BASE64(logo) as logo from tabEmpresa', (error, results) => {
 	    if (error) return res.status(500).json({type: 'error', error})
 	    res.json(results)
 	})
     })
 
-    app.get('/api/produtos/:empresa', (req, res) => {
-	db.query('select nome, descricao, preco from tabProdutos where codEmpresa='+req.params.empresa, (error, results) => {
+    app.get('/api/empresa/:empresa', (req, res) => {
+	db.query('select cod,nome, preco from tabProdutos where codEmpresa='+req.params.empresa, (error, results) => {
+	    if (error) return res.status(500).json({type: 'error', error})
+	    res.json(results)
+	})
+    })
+
+    app.get('/api/produto/:produto', (req, res) => {
+	db.query('select nome, descricao, preco from tabProdutos where cod='+req.params.produto, (error, results) => {
 	    if (error) return res.status(500).json({type: 'error', error})
 	    res.json(results)
 	})
