@@ -1,48 +1,21 @@
 <template>
 <div>
 <header>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
         <strong>HUB</strong>
-      </a>
-    </div>
-  </div>
 </header>
 <main role="main">
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>HUB EMPRESAS</h1>
-      <p class="lead text-muted">Lista de empresas</p>
-      <p>
-        <a href="#" class="btn btn-primary my-2">Main call to action</a>
-        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-      </p>
-    </div>
-  </section>
+  <h1>HUB EMPRESAS</h1>
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row">
         <div v-for="empresa in empresas" class="col-md-4">
           <div class="card mb-4 shadow-sm">
-	  <nuxt-link :to="'/empresa/'+empresa.cod">
-	  <img class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail" :src="'data:image/jpeg;base64,'+empresa.logo" :alt="empresa.nome+'.jpg'">
-	  </nuxt-link>
-	  <div class="card-body">
-	  	  <nuxt-link :to="'/empresa/'+empresa.cod">	
-              <h3 class="card-text"> {{empresa.nome}} </h3>
-	      	  </nuxt-link> 
-<nuxt-link :to="'https://api.whatsapp.com/send?phone='+empresa.telefone">		      <h4 class="card-text"> {{empresa.telefone}} </h4>
-	      	  </nuxt-link> 
-
-	      <h4 class="card-text">	  <nuxt-link :to="'/empresa/'+empresa.cod"> Acesse a loja </a> 	  </nuxt-link></h4> 
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
+	       <nuxt-link :to="'/empresa/'+empresa.cod"> <img :src="'data:image/jpeg;base64,'+empresa.logo" :alt="empresa.nome+'.jpg'"> </nuxt-link>
+	       <div class="card-body">
+  	       	    <nuxt-link :to="'/empresa/'+empresa.cod"> <h3 class="card-text"> {{empresa.nome}} </h3> </nuxt-link> 
+          	    <nuxt-link :to="'https://api.whatsapp.com/send?phone='+empresa.telefone"> <h4 class="card-text"> {{empresa.telefone}} </h4> </nuxt-link> 
+          	    <nuxt-link :to="'/empresa/'+empresa.cod"> <h4 class="card-text"> Acesse a loja </a> </h4> </nuxt-link>
+               </div>
           </div>
         </div>
       </div>
@@ -50,17 +23,11 @@
   </div>
 </main>
 <footer class="text-muted">
-  <div class="container">
-    <p class="float-right">
-      <a href="#">Back to top</a>
-    </p>
-    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
-  </div>
+Footer
 </footer>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 </div>
 </template>
+
 <script>
 import axios from 'axios' 
 export default {

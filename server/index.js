@@ -7,6 +7,9 @@ const app = express()
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
 
+// Importa modelos do BD
+const db = require("./app/models");
+
 async function start() {
   // Init Nuxt.js
   const nuxt = new Nuxt(config)
@@ -20,39 +23,13 @@ async function start() {
   } else {
     await nuxt.ready()
   }
-
+    
     // Express GET endpoint
+    // Sincroniza com o banco e define as rotas da API
+    db.sequelize.sync();
+    require("./app/routes/turorial.routes")(app);
+    require("./app/routes/empresa.routes")(app);
 
-    const mysql = require('mysql');
-
-    const db = mysql.createConnection({
-	host: "45.227.112.141",
-	user: "cleobilla",
-	password: "MgQ5TGAFPfnIwNfH!",
-	database: "cleobilla"	
-    });
-    
-    
-    app.get('/api/empresas', (req, res) => {
-	db.query('select cod,nome,logoNome,telefone,url,TO_BASE64(logo) as logo from tabEmpresa', (error, results) => {
-	    if (error) return res.status(500).json({type: 'error', error})
-	    res.json(results)
-	})
-    })
-
-    app.get('/api/empresa/:empresa', (req, res) => {
-	db.query('select cod,nome, preco from tabProdutos where codEmpresa='+req.params.empresa, (error, results) => {
-	    if (error) return res.status(500).json({type: 'error', error})
-	    res.json(results)
-	})
-    })
-
-    app.get('/api/produto/:produto', (req, res) => {
-	db.query('select nome, descricao, preco from tabProdutos where cod='+req.params.produto, (error, results) => {
-	    if (error) return res.status(500).json({type: 'error', error})
-	    res.json(results)
-	})
-    })
     
   // Give nuxt middleware to express
   app.use(nuxt.render)
