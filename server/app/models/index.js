@@ -19,7 +19,13 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+//DEFINE CAMPOS TABELAS
 db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
+
 db.empresa = require("./empresa.model.js")(sequelize, Sequelize);
+db.produto = require("./produto.model.js")(sequelize, Sequelize);
+// RELACOES ENTRE TABELAS
+db.empresa.hasMany(db.produto);
+db.produto.belongsTo(db.empresa,{as: 'fk_empresa'});
 
 module.exports = db;

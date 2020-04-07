@@ -29,6 +29,7 @@ async function start() {
     db.sequelize.sync();
     require("./app/routes/turorial.routes")(app);
     require("./app/routes/empresa.routes")(app);
+    require("./app/routes/produto.routes")(app);
 
     
   // Give nuxt middleware to express

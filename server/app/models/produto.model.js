@@ -1,39 +1,37 @@
 module.exports = (sequelize, Sequelize) => {
-    const Empresa = sequelize.define("novaTabEmpresa", {
-    // Campos criados automaticamente
+    const Produto = sequelize.define("novaTabProduto", {
+	// Campos criados automaticamente
 	//id
-	//createdAt
-	//updatedAt
-    nome: {
-      type: Sequelize.STRING
-    },
-    telefone: {
-      type: Sequelize.STRING
-    },
-    url: {
-      type: Sequelize.STRING
-    },
-    logoNome: {
-      type: Sequelize.STRING
-    }
-  });
-  return Empresa;
+	nome: {
+	    allowNull: false,
+	    type: Sequelize.STRING
+	},
+	descricao: {
+	    allowNull: true,
+	    type: Sequelize.STRING
+	},
+	preco: {
+	    allowNull: true,
+	    type: Sequelize.FLOAT
+	},
+	data: {
+	    allowNull: true,
+	    type: Sequelize.BLOB('long')
+	},
+	imagemNome: {
+	    allowNull: true,
+	    type: Sequelize.STRING
+	},
+	createdAt: {
+            allowNull: true,
+            type: Sequelize.DATE
+	},
+	updatedAt: {
+            allowNull: true,
+            type: Sequelize.DATE
+	}
+    });
+    
+    return Produto;
 };
 
-/*
-module.exports = (sequelize, Sequelize) => {
-  const Tutorial = sequelize.define("tutorial", {
-    title: {
-      type: Sequelize.STRING
-    },
-    description: {
-      type: Sequelize.STRING
-    },
-    published: {
-      type: Sequelize.BOOLEAN
-    }
-  });
-
-  return Tutorial;
-};
-*/

@@ -27,8 +27,9 @@
       <div class="row">
         <div v-for="produto in produtos" class="col-md-4">
           <div class="card mb-4 shadow-sm">
+	  	       <nuxt-link :to="'/empresa/produto/'+produto.id"> <img :src="'data:image/jpeg;base64,'+produto.imagem" :alt="produto.logoNome+'.jpg'"> </nuxt-link>	
             <div class="card-body">
-	    <nuxt-link :to="'/empresa/produto/'+produto.cod">	
+	    <nuxt-link :to="'/empresa/produto/'+produto.id">	
               <h3 class="card-text"> {{produto.nome}} </h3>
 	      <p>  {{produto.preco}} </p>
 	      </nuxt-link>

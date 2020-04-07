@@ -17,7 +17,7 @@ module.exports = (sequelize, Sequelize) => {
 	data: {
 	    allowNull: true,
 	    type: Sequelize.BLOB('long')
-	}
+	},
 	logoNome: {
 	    allowNull: true,
 	    type: Sequelize.STRING
@@ -34,20 +34,3 @@ module.exports = (sequelize, Sequelize) => {
     return Empresa;
 };
 
-/*
-module.exports = (sequelize, Sequelize) => {
-  const Tutorial = sequelize.define("tutorial", {
-    title: {
-      type: Sequelize.STRING
-    },
-    description: {
-      type: Sequelize.STRING
-    },
-    published: {
-      type: Sequelize.BOOLEAN
-    }
-  });
-
-  return Tutorial;
-};
-*/

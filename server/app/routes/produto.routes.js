@@ -1,17 +1,17 @@
 module.exports = app => {
-  const empresa = require("../controllers/empresa.controller.js");
+  const produto = require("../controllers/produto.controller.js");
 
   var router = require("express").Router();
 
   // Retrieve all Tutorials
-  router.get("/", empresa.findAll);
+  router.get("/:id", produto.findAll);
 
-/*  // Retrieve all published Tutorials
-  router.get("/published", tutorials.findAllPublished);
+  // Retrieve all published Tutorials
+ // router.get("/published", tutorials.findAllPublished);
 
   // Retrieve a single Tutorial with id
-  router.get("/:id", tutorials.findOne);
-
+  router.get("/produto/:id", produto.findOne);
+/*
   // Update a Tutorial with id
   router.put("/:id", tutorials.update);
 
@@ -21,5 +21,5 @@ module.exports = app => {
   // Create a new Tutorial
   router.delete("/", tutorials.deleteAll);
 */
-  app.use('/api/empresas', router);
+  app.use('/api/empresa', router);
 };

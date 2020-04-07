@@ -25,8 +25,8 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row">
-        <div v-for="produto in produtos" class="col-md-4">
           <div class="card mb-4 shadow-sm">
+	     <img :src="'data:image/jpeg;base64,'+produto.imagem" :alt="produto.logoNome+'.jpg'">
             <div class="card-body">
               <h3 class="card-text"> {{produto.nome}} </h3>
 	      <p>  {{produto.descricao}} </p>
@@ -37,7 +37,6 @@
                 <small class="text-muted">9 mins</small>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
@@ -59,9 +58,9 @@
 import axios from 'axios'
 export default {
   asyncData ({ params }) {
-    return axios.get(`http://localhost:3000/api/produto/${params.id}`)
+    return axios.get(`http://localhost:3000/api/empresa/produto/${params.id}`)
       .then((res) => {
-        return { produtos: res.data }
+        return { produto: res.data }
       })
   }
 }
