@@ -1,18 +1,22 @@
 <template>
   <div>
+    <nuxt-link :to="'/empresa/'+empresa.id">
       <div class="card-image">
-      <figure class="image is-4by3">
-        <img :src="'data:image/jpeg;base64,'+empresa.imagem" :alt="empresa.logoNome+'.jpg'">
-      </figure>
-    </div>
+        <figure class="image is-4by3">
+          <img :src="'data:image/jpeg;base64,'+empresa.imagem" :alt="empresa.logoNome+'.jpg'">
+        </figure>
+      </div>
+    </nuxt-link>
     <div class="card-content">
       <div class="media">
         <div class="media-content">
           <p class="title is-4">{{ empresa.nome }}</p>
         </div>
       </div>
-          <p> <span class="title is-4"><strong>{{ empresa.url }}</strong></span></p>
-	  <p><span class="title is-4"><strong>{{ empresa.telefone }}</strong></span></p>
+        <nuxt-link :to="'/empresa/'+empresa.id">
+          <p> <span class="title is-4"><strong>Acesse a loja</strong></span></p>
+        </nuxt-link>
+	      <p><span class="title is-4"><strong>{{ empresa.telefone }}</strong></span></p>
       </div>
     </div>
   </div>

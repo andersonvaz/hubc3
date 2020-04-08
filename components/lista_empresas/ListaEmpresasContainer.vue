@@ -10,11 +10,10 @@
 <script>
 
 import VmEmpresas from '../Empresas';
-import EmpresaDataService from "~/services/EmpresaDataService";
 
 export default {
-         components: { VmEmpresas },
-	 props: {'empresas':Array}
+  components: { VmEmpresas },
+	props: {'empresas':Array}
 }    
 </script>
 
