@@ -1,6 +1,6 @@
 <template>
   <div class="columns is-centered is-multiline">
-    <div class="card column is-one-quarter" v-for="produto in produtos" :key="produto.id">
+    <div class="card column is-one-quarter" v-for="produto in produtosL" :key="produto.id">
       <VmProdutos :produto="produto"></VmProdutos>
     </div>
     <div class="section" v-if="produtos.length === 0">
@@ -25,9 +25,18 @@ export default {
       productsFiltered: []
     };
   },
+   computed: {
+    produtosL () {
+      if (this.$store.state.userInfo.hasSearched) {
+        return this.getProductByTitle();
+      } else {
+        return this.$props.produtos;
+      }
+    }
+  },
   methods: {
     getProductByTitle () {
-      let listOfProducts = produtos,
+      let listOfProducts = this.$props.produtos,
           titleSearched = this.$store.state.userInfo.productTitleSearched;
       
       return this.productsFiltered = getByTitle(listOfProducts, titleSearched);
