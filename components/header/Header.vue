@@ -3,7 +3,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <nuxt-link :to="{ name: 'index' }" class="navbar-item">
-          <h1 class="title is-3 is-flex-mobile"></h1>
+          <h1 class="title is-3 is-flex-mobile">HUB C3</h1>
         </nuxt-link>
 
         <a role="button" class="navbar-burger burger" @click="isMenuOpen = !isMenuOpen" aria-label="menu" aria-expanded="false">
@@ -96,7 +96,6 @@
 
 <style lang="scss" scoped>
   .title {
-    background: url('../../static/vuemmerce-logo.png') no-repeat;
     background-position: 50% 50%;
     background-size: 165px;
     width: 175px;

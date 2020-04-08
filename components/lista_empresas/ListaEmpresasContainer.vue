@@ -10,7 +10,7 @@
 <script>
 
 import VmEmpresas from '../Empresas';
-import EmpresaDataService from "../../services/EmpresaDataService";
+import EmpresaDataService from "~/services/EmpresaDataService";
 
 export default {
          components: { VmEmpresas },

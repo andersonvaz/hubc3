@@ -2,10 +2,10 @@
   <div class="footer">
     <div class="columns container">
       <div class="column">
-        <p>Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet.</p>
+        <p>Obrigado por visitar.</p>
       </div>
     <div class="column has-text-right">
-      <p>Vuemmerce | Made with ❤</p>
+      <p>HUB C3 E-Commerce | Made with ❤</p>
     </div>
     </div>
   </div>
@@ -19,7 +19,7 @@ export default {
 
 <style lang="scss" scoped>
  .footer {
-   background: #b9e2fc;
-   color: black;
+   background: #000000;
+   color: white;
  }
 </style>
