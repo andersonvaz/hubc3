@@ -22,7 +22,7 @@
       <div class="card-footer btn-actions">
         <div class="card-footer-item field is-grouped">
           <div class="buttons">
-            <button class="button is-primary" v-if="!produto.isAddedToCart" @click="addToCart(produto.id)">{{ addToCartLabel }}</button>
+            <button class="button is-primary" v-if="!produto.isAddedToCart" @click="addToCart(produto.id,produto.nome,produto.preco)">{{ addToCartLabel }}</button>
             <button class="button is-text" v-if="produto.isAddedToCart" @click="removeFromCart(produto.id, false)">{{ removeFromCartLabel }}</button>
           </div>
            <div class="select is-rounded is-small">
@@ -47,7 +47,8 @@ export default {
       viewDetailsLabel: 'Details',
       removeFromCartLabel: 'Remove from cart',
       selected: 1,
-      quantityArray: []
+      quantityArray: [],
+      quantidade:1
     }
   },
 
@@ -68,12 +69,12 @@ export default {
   },
 
   methods: {
-    addToCart (id) {
+    addToCart (id,nome,preco,quantidade) {
       let data = {
         id: id,
         status: true
       }
-      this.$store.commit('addToCart', id);
+      this.$store.commit('addToCarrinho', {id,nome,preco,quantidade});
       this.$store.commit('setAddedBtn', data);
     },
     removeFromCart (id) {
@@ -85,6 +86,7 @@ export default {
       this.$store.commit('setAddedBtn', data);
     },
     onSelectQuantity (id) {
+      this.quantidade=this.selected;
       let data = {
         id: id,
         quantity: this.selected

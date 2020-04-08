@@ -165,8 +165,24 @@ export const mutations = {
     state.products.forEach(el => {
       if (id === el.id) {
         el.isAddedToCart = true;
-      }
+      } 
     });
+    console.log('Old: '+ state.products);
+  },
+  addToCarrinho:(state, {id, nome, preco, quantidade}) => {
+    const newProduct = {
+      id: id,
+      title: nome,
+      price: preco,
+      isAddedToCart: true,
+      isAddedBtn: true,
+      quantity: quantidade
+    }
+    console.log('temp1: '+ JSON.stringify(newProduct));
+    const found = state.products.some(el => el.id === id && el.isAddedToCart===true);
+    if (!found)
+      state.products.push(newProduct);
+    console.log('temp: '+ state.products);
   },
   setAddedBtn: (state, data) => {
     state.products.forEach(el => {
